@@ -5,4 +5,7 @@
 
 body {
   background-color: #222;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
 }
