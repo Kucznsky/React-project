@@ -1,7 +1,5 @@
 import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import React, {useState} from 'react';
+import React, {useState} from 'react';
 
 function App() {
   return (
@@ -13,42 +11,56 @@ function App() {
 
 //=======================================================================================================
 const HomeBar = () => {
+  const [active, setActive] = useState("FirstPage")
   return (
-    <div>
-      <ul>
-        <li>
-          <button>Home</button>
-        </li>
-        <li>
-          <button>Repertoire</button>
-        </li>
-        <li>
-          <button>Screening rooms</button>
-        </li>
-        <li>
-          <button>Movies</button>
-        </li>
-        <li>
-          <button></button>
-        </li>
-      </ul>
+    <div className="div1">
+      <div className="div2">
+        <h1 className="companyTitle">[Put cinema name here]</h1>
+        <ul>
+          <li>
+            <button onClick={() => setActive("FirstPage")}>FirstHome</button>
+          </li>
+          <hr />
+          <li>
+            <button onClick={() => setActive("SecondPage")}>Repertoire</button>
+          </li>
+          <hr />
+          <li>
+            <button onClick={() => setActive("ThirdPage")}>Screening rooms</button>
+          </li>
+          <hr />
+          <li>
+            <button onClick={() => setActive("FourthPage")}>Movies</button>
+          </li>
+        </ul>
+        <div>
+          {active === "FirstPage" && <HomePage></HomePage>}
+          {active === "SecondPage" && <Repertoire></Repertoire>}
+          {active === "ThirdPage" && <ScreeningRooms></ScreeningRooms>}
+          {active === "FourthPage" && <Movies></Movies>}
+        </div>
+      </div>
     </div>
   );
 }
+
+const HomePage = () => {
+  return(<h1>Here will be lists of today showings and and ongoing showings </h1>);
+}
+
+const Repertoire = () => {
+  return(<h1>Here will be repertoire</h1>);
+}
+
+const Movies = () => {
+  return(<h1>Here will be list of movies</h1>);
+}
+
+const ScreeningRooms = () => {
+  return(<h1>Here will be list of ScreeningRooms</h1>);
+}
 //=======================================================================================================
-/*const [active, setActive] = useState("FirstCard")
-  return(
-    <div>
-      <div>
-        <button onClick={() => setActive("FirstCard")}>First page</button>
-        <button onClick={() => setActive("SecondCard")}>Second page</button>
-      </div>
-      <div>
-        {active === "FirstCard" && <Something></Something>}
-        {active === "SecondCard" && <SomethingElse></SomethingElse>}
-      </div>
-    </div>
-  );
-*/
+
+//=======================================================================================================
 
 export default App;
