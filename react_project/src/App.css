@@ -8,11 +8,6 @@
   width: 100%;
 }
 
-/*.edit {
-  display: flex;
-  justify-content: flex-start;
-}*/
-
 .companyTitle {
   display: flex;
   justify-content: center;
@@ -23,6 +18,8 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+/*===================================================main menu================================================*/
 
 .mainBar {
   position: relative;
@@ -55,35 +52,13 @@ h1 {
   color: rgba(255, 255, 255, 0.2);
 }
 
-/*.mainBar li button::before {
-  position: absolute;
-  content: "";
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background-color: #2a2a2a;
-  transform-origin: top;
-  transform: skewX(-41deg);
-}
-
-.mainBar li button::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: -9px;
-  width: 9px;
-  height: 100%;
-  background-color: #2a2a2a;
-  transform-origin: right;
-  transform: skewY(-49deg);
-}*/
-
 .mainBar li button:hover {
   color: #fff;
   cursor: pointer;
   text-shadow: 0 1px 0 #222;
 }
+
+/*===================================================lists================================================*/
 
 .booklist {
   width: 90vw;
@@ -100,23 +75,48 @@ h1 {
 }
 
 .book {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   padding: 1rem 2rem;
 }
-.book h1 {
+
+.listFirstLine {
   margin-top: 0.5rem;
-  color: #222222;
+  font-size: 2rem;
+  color: #555;
 }
-.book h4 {
-  color: #333;
-  font-size: 0.75rem;
+
+.book:hover {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 2rem 4rem;
+  box-shadow: 0 8px 16px 0 rgba(59, 89, 601, 0.2),
+    0 6px 20px 0 rgba(59, 89, 601, 0.19);
+  transition: 0.9s;
+}
+
+.book:hover .listFirstLine {
+  font-size: 3rem;
+  color: #fff;
+  -webkit-text-stroke: 0.5px #3b5999;
+  text-shadow: 0 0 5px rgba(59, 89, 601, 0.5);
+  font-weight: bolder;
+  transition: 0.5s;
+}
+
+.listSmallerText {
+  color: #666;
+  font-size: 0.9rem;
   margin-top: 0.25rem;
 }
-.book p {
-  margin-top: 0.5rem;
-  color: black;
+
+.book:hover .listSmallerText {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #888;
+  transition: 0.5s;
 }
+
+/*===================================================other================================================*/
 
 .btn {
   background-color: #333;

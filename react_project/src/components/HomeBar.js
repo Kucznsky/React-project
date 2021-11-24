@@ -13,7 +13,7 @@ const HomeBar = () => {
         <img src={logo} alt="logo" />
         <ul className="mainBar">
           <li>
-            <button onClick={() => setActive("FirstPage")}>Home</button>
+            <button onClick={() => setActive("FirstPage")}>Home</button>        
           </li>
           <hr />
           <li>
@@ -26,6 +26,10 @@ const HomeBar = () => {
           <hr />
           <li>
             <button onClick={() => setActive("FourthPage")}>Movies</button>
+          </li>
+          <hr />
+          <li>
+            <button>Buy Ticket</button>
           </li>
         </ul>
         <div>

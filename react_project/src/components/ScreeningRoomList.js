@@ -12,11 +12,11 @@ const ScreeningRoomsList = () => {
 
 const Room = (props) => 
 {
-  const {number, space} = props;
+  const {room, space} = props;
   return (
     <article className='book'>
-      <h1>{number}</h1>
-      <h4>{space}</h4>
+      <p className='listFirstLine'>{"Room: "+room}</p>
+      <p className='listSmallerText'>{space}</p>
     </article>
   );
 }
@@ -28,12 +28,12 @@ const Room = (props) =>
 const room = [
 {
   id: 1,
-  number: 'room 1',
+  room: '1',
   space: '100 chairs',
 },
 {
   id: 2,
-  number: 'room 2',
+  room: '2',
   space: '50 chairs',
 },
 ];

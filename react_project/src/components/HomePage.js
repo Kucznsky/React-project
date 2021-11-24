@@ -22,13 +22,13 @@ const TodayShowings = () => {
     <section className='booklist'>
     {showing.filter( showing => showing.date === today).map(filteredShowing => (
       <div className='book'>
-        <h1>{filteredShowing.title}</h1>
-        <h4>{filteredShowing.date}</h4>
-        <h4>{filteredShowing.hour}</h4>
-        <h4>{filteredShowing.sold}</h4>
-        <h4>{filteredShowing.available}</h4>
-        <h4>{filteredShowing.room}</h4>
-        <h4>{"free chairs: "+filteredShowing.free_chairs}</h4>
+        <p className='listFirstLine'>{filteredShowing.title}</p>
+        <p className='listSmallerText'>{filteredShowing.date}</p>
+        <p className='listSmallerText'>{filteredShowing.hour}</p>
+        <p className='listSmallerText'>{filteredShowing.sold}</p>
+        <p className='listSmallerText'>{filteredShowing.available}</p>
+        <p className='listSmallerText'>{filteredShowing.room}</p>
+        <p className='listSmallerText'>{"free chairs: "+filteredShowing.free_chairs}</p>
       </div>
     ))}
     </section>);
@@ -41,13 +41,13 @@ const CurrentShowings = () => {
     <section className='booklist'>
     {showing.filter( showing => showing.hour <= now && showing.ending_hour >= now && showing.date === today).map(filteredShowing => (
       <div className='book'>
-        <h1>{filteredShowing.title}</h1>
-        <h4>{filteredShowing.date}</h4>
-        <h4>{filteredShowing.hour}</h4>
-        <h4>{filteredShowing.sold}</h4>
-        <h4>{filteredShowing.available}</h4>
-        <h4>{filteredShowing.room}</h4>
-        <h4>{"free chairs: "+filteredShowing.free_chairs}</h4>
+        <p className='ListFirstLine'>{filteredShowing.title}</p>
+        <p className='ListSmallerText'>{filteredShowing.date}</p>
+        <p className='ListSmallerText'>{filteredShowing.hour}</p>
+        <p className='ListSmallerText'>{filteredShowing.sold}</p>
+        <p className='ListSmallerText'>{filteredShowing.available}</p>
+        <p className='ListSmallerText'>{"Room: "+filteredShowing.room}</p>
+        <p className='ListSmallerText'>{"free chairs: "+filteredShowing.free_chairs}</p>
       </div>
     ))}
     </section>);
@@ -83,7 +83,7 @@ const showing = [{
   ending_hour: '21:35',
   sold: '40',
   available: '10',
-  room: 'room 2',
+  room: '2',
   free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 {
@@ -94,18 +94,18 @@ const showing = [{
   ending_hour: '22:35',
   sold: '40',
   available: '10',
-  room: 'room 2',
+  room: '2',
   free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 {
   id: 3,
   title: 'Diuna',
-  date: '26.11.2021',
+  date: '25.11.2021',
   hour: '17:00',
   ending_hour: '19:35',
   sold: '40',
   available: '10',
-  room: 'room 2',
+  room: '2',
   free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 ];
