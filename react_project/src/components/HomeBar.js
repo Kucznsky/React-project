@@ -3,9 +3,7 @@ import HomePage from './HomePage';
 import Repertoire from './Repertoire';
 import MovieList from './MovieList';
 import ScreeningRoomsList from './ScreeningRoomList';
-
 import logo from './logo.png'
-
 
 const HomeBar = () => {
   const [active, setActive] = useState("FirstPage")
@@ -15,7 +13,7 @@ const HomeBar = () => {
         <img src={logo} alt="logo" />
         <ul className="mainBar">
           <li>
-            <button onClick={() => setActive("FirstPage")}>FirstHome</button>
+            <button onClick={() => setActive("FirstPage")}>Home</button>
           </li>
           <hr />
           <li>
@@ -42,3 +40,5 @@ const HomeBar = () => {
 }
 
 export default HomeBar;
+
+

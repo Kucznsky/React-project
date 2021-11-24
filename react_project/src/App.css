@@ -117,3 +117,12 @@ h1 {
   margin-top: 0.5rem;
   color: black;
 }
+
+.btn {
+  background-color: #333;
+  padding: 0.8rem;
+  border: none;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.2);
+}

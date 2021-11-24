@@ -3,8 +3,9 @@ import React from "react";
 const Repertoire = () => {
    return(
     <section className='booklist'>
-      {showing.map((showing) => {
-        return (<Showing key={showing.id} {...showing}></Showing>);
+      {
+        showing.map((showing) => {
+          return (<Showing key={showing.id} {...showing}></Showing>);
       })}
     </section>
   );
@@ -30,7 +31,7 @@ const Showing = (props) =>
 const showing = [{
   id: 1,
   title: 'Diuna',
-  date: '22.11.2021',
+  date: '24.11.2021',
   hour: '18:30',
   sold: '40',
   available: '10',
@@ -39,7 +40,7 @@ const showing = [{
 {
   id: 2,
   title: 'Diuna',
-  date: '22.11.2021',
+  date: '24.11.2021',
   hour: '20:00',
   sold: '40',
   available: '10',
@@ -48,7 +49,7 @@ const showing = [{
 {
   id: 3,
   title: 'Diuna',
-  date: '23.11.2021',
+  date: '26.11.2021',
   hour: '17:00',
   sold: '40',
   available: '10',
