@@ -22,7 +22,7 @@ const Showing = (props) =>
       <h4>{sold}</h4>
       <h4>{available}</h4>
       <h4>{room}</h4>
-      <h4>{free_chairs}</h4>
+      <h4>{"free chairs: "+free_chairs+","}</h4>
     </article>
   );
 }
@@ -36,6 +36,7 @@ const showing = [{
   sold: '40',
   available: '10',
   room: 'room 2',
+  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 {
   id: 2,
@@ -45,6 +46,7 @@ const showing = [{
   sold: '40',
   available: '10',
   room: 'room 2',
+  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 {
   id: 3,

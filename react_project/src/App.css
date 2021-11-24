@@ -100,7 +100,7 @@ h1 {
 }
 
 .book {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 1rem;
   padding: 1rem 2rem;
 }
@@ -109,7 +109,7 @@ h1 {
   color: #222222;
 }
 .book h4 {
-  color: #617d98;
+  color: #333;
   font-size: 0.75rem;
   margin-top: 0.25rem;
 }
@@ -123,6 +123,18 @@ h1 {
   padding: 0.8rem;
   border: none;
   font-weight: bolder;
+  margin: 0.3rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover {
+  color: #fff;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #222;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }

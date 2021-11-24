@@ -14,10 +14,10 @@ const Movie = (props) =>
 {
   const {title, time} = props;
   return (
-    <button className='book'>
+    <article className='book'>
       <h1>{title}</h1>
       <h4>{time}</h4>
-    </button>
+    </article>
   );
 }
 

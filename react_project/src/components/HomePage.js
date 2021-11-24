@@ -4,9 +4,9 @@ const HomePage = () => {
   const [active, setActive] = useState("FirstPage")
   return(
     <div>
-      <div>
-        <button onClick = {() => setActive("FirstPage")}>Today showings</button>
-        <button onClick = {() => setActive("SecondPage")}>Showings right now</button>
+      <div  className='center'>
+        <button className='btn' onClick = {() => setActive("FirstPage")}>Today showings</button>
+        <button className='btn' onClick = {() => setActive("SecondPage")}>Showings right now</button>
       </div>
       <div>
         {active === "FirstPage" && <TodayShowings></TodayShowings>}
@@ -28,7 +28,7 @@ const TodayShowings = () => {
         <h4>{filteredShowing.sold}</h4>
         <h4>{filteredShowing.available}</h4>
         <h4>{filteredShowing.room}</h4>
-        <h4>{filteredShowing.free_chairs}</h4>
+        <h4>{"free chairs: "+filteredShowing.free_chairs}</h4>
       </div>
     ))}
     </section>);
@@ -47,7 +47,7 @@ const CurrentShowings = () => {
         <h4>{filteredShowing.sold}</h4>
         <h4>{filteredShowing.available}</h4>
         <h4>{filteredShowing.room}</h4>
-        <h4>{filteredShowing.free_chairs}</h4>
+        <h4>{"free chairs: "+filteredShowing.free_chairs}</h4>
       </div>
     ))}
     </section>);
@@ -84,6 +84,7 @@ const showing = [{
   sold: '40',
   available: '10',
   room: 'room 2',
+  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 {
   id: 2,
@@ -94,6 +95,7 @@ const showing = [{
   sold: '40',
   available: '10',
   room: 'room 2',
+  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
 },
 {
   id: 3,
