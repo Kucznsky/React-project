@@ -11,6 +11,7 @@ import AddMovie from './components/AddMovie';
 import EditMovie from './components/EditMovies';
 import AddShowing from './components/AddShowing';
 import EditShowings from './components/EditShowings';
+import MoviePopularity from './components/MoviePopularity';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
           </Route>
            <Route exact path="/repertoire/edit_showing">
             <EditShowings></EditShowings>
+          </Route>
+          <Route exact path="/movies/movie_popularuty">
+            <MoviePopularity></MoviePopularity>
           </Route>
         </Switch>
       </div>
