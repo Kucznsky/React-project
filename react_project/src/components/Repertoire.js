@@ -1,13 +1,20 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const Repertoire = () => {
    return(
-    <section className='booklist'>
-      {
-        showing.map((showing) => {
-          return (<Showing key={showing.id} {...showing}></Showing>);
-      })}
-    </section>
+    <article>
+      <section className='center'>
+          <Link className='btn' to='/repertoire/add_showing'>Add showing</Link>
+          <Link className='btn' to='/repertoire/edit_showing'>Edit showing</Link>
+        </section>
+      <section className='booklist'>
+        {
+          showing.map((showing) => {
+            return (<Showing key={showing.id} {...showing}></Showing>);
+        })}
+      </section>
+    </article>
   );
 }
 

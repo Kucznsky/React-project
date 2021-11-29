@@ -22,7 +22,7 @@ const TodayShowings = () => {
     <section className='booklist'>
     {showing.filter( showing => showing.date === today).map(filteredShowing => (
       <div className='book'>
-        <p className='listFirstLine'>{filteredShowing.title}</p>
+        <span><p className='listFirstLine'>{filteredShowing.title}</p></span>
         <p className='listSmallerText'>{filteredShowing.date}</p>
         <p className='listSmallerText'>{filteredShowing.hour}</p>
         <p className='listSmallerText'>{filteredShowing.sold}</p>
@@ -89,9 +89,9 @@ const showing = [{
 {
   id: 2,
   title: 'Diuna',
-  date: '24.11.2021',
-  hour: '20:00',
-  ending_hour: '22:35',
+  date: '28.11.2021',
+  hour: '23:00',
+  ending_hour: '01:35',
   sold: '40',
   available: '10',
   room: '2',
@@ -100,7 +100,7 @@ const showing = [{
 {
   id: 3,
   title: 'Diuna',
-  date: '25.11.2021',
+  date: '28.11.2021',
   hour: '17:00',
   ending_hour: '19:35',
   sold: '40',

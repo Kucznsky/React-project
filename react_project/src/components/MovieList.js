@@ -1,12 +1,19 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const MovieList = () => {
-    return(  
-    <section className='booklist'>
-      {movie.map((movie) => {
-        return (<Movie key={movie.id} {...movie}></Movie>);
-      })}
-    </section>
+    return(
+      <article>
+        <section className='center'>
+          <Link className='btn' to='/movies/add_movie'>Add movie</Link>
+          <Link className='btn' to='/movies/edit_movie'>Edit movie</Link>
+        </section>
+        <section className='booklist'>
+          {movie.map((movie) => {
+            return (<Movie key={movie.id} {...movie}></Movie>);
+          })}
+        </section>
+      </article>
   );
 }
 

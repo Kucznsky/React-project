@@ -1,43 +1,33 @@
-import React, {useState} from 'react';
-import HomePage from './HomePage';
-import Repertoire from './Repertoire';
-import MovieList from './MovieList';
-import ScreeningRoomsList from './ScreeningRoomList';
 import logo from './logo.png'
+import {Link} from 'react-router-dom';
 
 const HomeBar = () => {
-  const [active, setActive] = useState("FirstPage")
+  //const [active, setActive] = useState("FirstPage")
   return (
     <div className="div1">
       <div className="div2">
         <img src={logo} alt="logo" />
         <ul className="mainBar">
           <li>
-            <button onClick={() => setActive("FirstPage")}>Home</button>        
+            <Link className='links' to='/'>Home</Link>     
           </li>
           <hr />
           <li>
-            <button onClick={() => setActive("SecondPage")}>Repertoire</button>
+            <Link className='links' to='/repertoire'>Repertoire</Link>
           </li>
           <hr />
           <li>
-            <button onClick={() => setActive("ThirdPage")}>Screening rooms</button>
+            <Link className='links' to='/rooms'>Screening rooms</Link>
           </li>
           <hr />
           <li>
-            <button onClick={() => setActive("FourthPage")}>Movies</button>
+            <Link className='links' to='/movies'>Movies</Link>
           </li>
           <hr />
           <li>
-            <button>Buy Ticket</button>
+            <Link className='links' to='/purchase'>Buy Ticket</Link>
           </li>
         </ul>
-        <div>
-          {active === "FirstPage" && <HomePage></HomePage>}
-          {active === "SecondPage" && <Repertoire></Repertoire>}
-          {active === "ThirdPage" && <ScreeningRoomsList></ScreeningRoomsList>}
-          {active === "FourthPage" && <MovieList></MovieList>}
-        </div>
       </div>
     </div>
   );
@@ -46,3 +36,7 @@ const HomeBar = () => {
 export default HomeBar;
 
 
+          /*{active === "FirstPage" && <HomePage></HomePage>}
+          {active === "SecondPage" && <Repertoire></Repertoire>}
+          {active === "ThirdPage" && <ScreeningRoomsList></ScreeningRoomsList>}
+          {active === "FourthPage" && <MovieList></MovieList>}*/
