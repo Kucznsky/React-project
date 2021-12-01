@@ -12,7 +12,7 @@ import EditMovie from './components/EditMovies';
 import AddShowing from './components/AddShowing';
 import EditShowings from './components/EditShowings';
 import MoviePopularity from './components/MoviePopularity';
-import 'react-datepicker/dist/react-datepicker.css'
+import MovieDetails from './components/MovieDetails';
 
 function App() {
   return (
@@ -32,10 +32,14 @@ function App() {
           <Route exact path="/movies">
             <MovieList></MovieList>
           </Route>
+
+          <Route exact path="/movies/:id">
+            <MovieDetails></MovieDetails>
+          </Route>
+          
           <Route exact path="/purchase">
             <Purchase></Purchase>
           </Route>
-
           <Route exact path="/movies/add_movie">
             <AddMovie></AddMovie>
           </Route>
