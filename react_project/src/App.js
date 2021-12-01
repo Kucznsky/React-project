@@ -12,6 +12,7 @@ import EditMovie from './components/EditMovies';
 import AddShowing from './components/AddShowing';
 import EditShowings from './components/EditShowings';
 import MoviePopularity from './components/MoviePopularity';
+import 'react-datepicker/dist/react-datepicker.css'
 
 function App() {
   return (

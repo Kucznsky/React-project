@@ -1,16 +1,21 @@
 import { useState } from 'react';
-import Calendar from 'react-calendar';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const PopularityCalendar = () => {
-    const [date, setDate] = useState(new Date());
-
-  const onChange = date => {
-    setDate(date);
-  };
+    const [selectedDate, SetSelectedDate] = useState(null);
 
   return (
-    <div className='center'>
-      <Calendar showWeekNumbers onChange={onChange} value={date} />
+    <div>
+      <DatePicker 
+        selected={selectedDate} 
+        onChange={date => SetSelectedDate(date)}
+        dateFormat='dd.MM.yyyy'
+        maxDate={new Date()}
+        isClearable
+        showYearDropdown
+        scrollableMonthYearDropdown
+      /> 
     </div>
   );
 };
