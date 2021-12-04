@@ -2,7 +2,8 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import Proptypes from 'prop-types';
 
-const Repertoire = () => {
+const Repertoire = (props) => {
+  //const {date,hour,sold,available,room_nr,free_chairs} = props;
    return(
     <article>
       <section className='center'>

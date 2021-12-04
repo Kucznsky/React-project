@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-const CurrentShowings = () => {
+const CurrentShowings = (props) => {
+  //const {date,hour,sold,available,room_nr,free_chairs} = props;
   var today = getCurrentDate();
   var now = getCurrentTime();
   return(

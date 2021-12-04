@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const ScreeningRoomsList = () => {
+const ScreeningRoomsList = (props) => {
+  //const {room_nr,space} = props;
   return(  
     <section className='booklist'>
       {room.map((room) => (

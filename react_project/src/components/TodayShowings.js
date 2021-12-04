@@ -1,6 +1,7 @@
 import Proptypes from 'prop-types';
 
-const TodayShowings = () => {
+const TodayShowings = (props) => {
+  //const {date,hour,sold,available,room_nr,free_chairs} = props;
   var today = getCurrentDate();
   return(
     <section className='booklist'>

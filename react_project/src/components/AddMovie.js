@@ -8,7 +8,7 @@ const AddMovie = () => {
                         <label>Title</label>
                     </li>
                     <li>
-                        <input type="text" />
+                        <input type="text"></input>
                     </li>
                     <li>
                         <label>Time</label>

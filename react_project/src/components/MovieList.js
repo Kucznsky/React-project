@@ -2,7 +2,8 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const MovieList = () => {
+const MovieList = (props) => {
+    //const {title,time}=props;
     return(
       <article>
         <section className='center'>
