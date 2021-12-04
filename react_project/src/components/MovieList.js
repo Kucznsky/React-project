@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const MovieList = () => {
     return(
@@ -12,15 +13,20 @@ const MovieList = () => {
         <section className='booklist'>
           {movie.map((movie) => (
             <article className='book' key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
-            <p className='listFirstLine'>{movie.title}</p>
-            <p className='listSmallerText'>{movie.time}</p> 
-            </Link>
-          </article>           
+              <Link to={`/movies/${movie.id}`}>
+              <p className='listFirstLine'>{movie.title}</p>
+              <p className='listSmallerText'>{movie.time}min</p> 
+              </Link>
+            </article>           
           ))}
         </section>
       </article>
   );
+}
+
+MovieList.propTypes = {
+  title: PropTypes.string,
+  time: PropTypes.number,
 }
 
 /*const Movie = (props) => 
@@ -41,12 +47,12 @@ const movie = [
 {
   id: 1,
   title: 'Diuna',
-  time: '155min',
+  time: 155,
 },
 {
   id: 2,
   title: 'DOM GUCCI',
-  time: '158min',
+  time: 158,
 },
 ];
 //======================================================================
