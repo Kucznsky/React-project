@@ -82,7 +82,7 @@ class AddMovie extends React.Component {
                             />
                             <p className='error'>{this.state.timeError}</p>
                         </li>
-                          <hr/>
+                        <hr/>
                         <br/>
                         <li>
                             <button type="submit">Confirm</button>
