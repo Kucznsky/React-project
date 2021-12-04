@@ -179,3 +179,10 @@ fieldset ul li {
 fieldset ul li label {
   font-weight: bold;
 }
+
+.error {
+  font-size: 1.2rem;
+  font-style: italic;
+  text-decoration: underline;
+  color: red;
+}

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Purchase extends Component.React  {
+class Purchase extends React.Component  {
 
     state = {
         
