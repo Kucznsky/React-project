@@ -20,10 +20,10 @@ Seans:
 
 ## Funkcjonalności:
 ### Możliwe operacje:
-- Dodawanie i edycja filmu
-    - Usuwanie filmu
-- Dodawanie i edycja seansu
-- Kupowanie biletu (seans, nr miejsca)
+-[x] Dodawanie i edycja filmu
+    -[x] Usuwanie filmu
+-[ ] Dodawanie i edycja seansu
+-[x] Kupowanie biletu (seans, nr miejsca)
 ###  Wyświetlanie seansów w danym dniu (zaczynamy od bieżącego dnia i bieżącej godziny).
 ### Wyświetlanie popularności danego filmu w poszczególnych dniach
 <!-- TODO rozszerzyć i wyjaśnić co znaczy ten punkt -->

@@ -40,10 +40,12 @@ namespace Backend.Controllers
                 return BadRequest(new ArgumentException("Expected value for seat parameter."));
 
             var screening = _context.Screenings.Find(screeningID);
-            if(screening is null)
+            if (screening is null)
                 return NotFound(new NullReferenceException($"There is no screening with id: {screeningID}"));
-            if(screening.BeginsAt <= DateTime.Now)
+            if (screening.BeginsAt <= DateTime.Now)
                 return BadRequest("Requested reservation was for already started screening (screening started at: {screening.BeginsAt})");
+            if (_context.Films.Find(screening.FilmID).IsShowing is false)
+                return BadRequest("Screening of requested film was put off listings.");
 
             var takenSeat = _context.TakenSeats.Find(new { screeningID, seat });
             if(takenSeat is not null)
