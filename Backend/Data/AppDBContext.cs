@@ -16,6 +16,7 @@ namespace Backend.Data
         public DbSet<Film> Films { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Screening> Screenings { get; set; }
+        public DbSet<TakenSeat> TakenSeats { get; set; }
 
         
         public AppDBContext(DbContextOptions<AppDBContext> options)
@@ -41,6 +42,17 @@ namespace Backend.Data
                     .HasOne<Screening>()
                     .WithMany()
                     .HasForeignKey(e => e.ScreeningID);
+
+            builder.Entity<Film>().HasData(
+                    new Film { ID= 1, Title= "Diune", ScreeningTime= 156 },
+                    new Film { ID= 2, Title= "The Intouchables", ScreeningTime= 112 },
+                    new Film { ID= 3, Title= "Dom Gucci", ScreeningTime= 157 },
+                    new Film { ID= 4, Title= "Motywacja", ScreeningTime= 600 }
+                );
+            builder.Entity<Room>().HasData(
+                    new Room { ID= 1, Capacity= 60 },
+                    new Room { ID= 2, Capacity= 150 }
+                );
         }
     }
 }

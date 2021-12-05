@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Backend.Models
 {
     public class Film
     {
+        [Key]
         public int ID { get; set; }
         public string Title { get; set; }
         // In minutes.

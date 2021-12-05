@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20211205175132_Init")]
+    [Migration("20211205180029_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,7 +82,7 @@ namespace Backend.Migrations
 
                     b.HasKey("ScreeningID", "SeatID");
 
-                    b.ToTable("TakenSeat");
+                    b.ToTable("TakenSeats");
                 });
 
             modelBuilder.Entity("Backend.Models.Screening", b =>

@@ -61,7 +61,7 @@ namespace Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TakenSeat",
+                name: "TakenSeats",
                 columns: table => new
                 {
                     ScreeningID = table.Column<int>(type: "INTEGER", nullable: false),
@@ -69,9 +69,9 @@ namespace Backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TakenSeat", x => new { x.ScreeningID, x.SeatID });
+                    table.PrimaryKey("PK_TakenSeats", x => new { x.ScreeningID, x.SeatID });
                     table.ForeignKey(
-                        name: "FK_TakenSeat_Screenings_ScreeningID",
+                        name: "FK_TakenSeats_Screenings_ScreeningID",
                         column: x => x.ScreeningID,
                         principalTable: "Screenings",
                         principalColumn: "ID",
@@ -92,7 +92,7 @@ namespace Backend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TakenSeat");
+                name: "TakenSeats");
 
             migrationBuilder.DropTable(
                 name: "Screenings");
