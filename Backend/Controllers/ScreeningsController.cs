@@ -73,5 +73,13 @@ namespace Backend.Controllers
             
             return Ok();
         }
+
+        /// wyświetlanie seansów w danym dniu, wyświetlanie aktualnie trwających seansów (zaczynamy od bieżącego dnia i bieżącej godziny) - 2pkt
+
+        [HttpGet("ScreeningsInDay")]
+        public IEnumerable<Screening> GetByDay(DateTime day)
+        {
+            return _context.Screenings.Where(item => item.BeginsAt.Day == day.Day);
+        }
     }
 }
