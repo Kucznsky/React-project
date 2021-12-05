@@ -8,6 +8,6 @@ namespace Backend.Models
         public int FilmID { get; set; }
         public int RoomID { get; set; }
         public int SoldTickets { get; set; }
-        public ICollection<int> TakenSeats { get; set; }
+        // public ICollection<int> TakenSeats { get; set; }
     }
 }

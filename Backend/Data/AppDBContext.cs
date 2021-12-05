@@ -34,6 +34,13 @@ namespace Backend.Data
                     .HasOne<Room>()
                     .WithMany()
                     .HasForeignKey(e => e.RoomID);
+
+            builder.Entity<TakenSeat>()
+                    .HasKey(e => new { e.ScreeningID, e.SeatID });
+            builder.Entity<TakenSeat>()
+                    .HasOne<Screening>()
+                    .WithMany()
+                    .HasForeignKey(e => e.ScreeningID);
         }
     }
 }
