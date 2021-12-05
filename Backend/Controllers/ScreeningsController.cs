@@ -29,11 +29,11 @@ namespace Backend.Controllers
         {
             return _context.Screenings.Find(index);
         }
-        [HttpGet("film={index}")]
-        public IEnumerable<Screening> GetFilmScreenings(int index)
+        [HttpGet("/FilmScreenings/{filmID}")]
+        public IEnumerable<Screening> GetFilmScreenings(int filmID)
         {
             return _context.Screenings
-                    .Where(screening => screening.FilmID == index);
+                    .Where(screening => screening.FilmID == filmID);
         }
     }
 }
