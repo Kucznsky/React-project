@@ -23,7 +23,22 @@ class Purchase extends React.Component  {
                             <label>Showings available</label>
                         </li>
                         <li>
-                            <select></select>
+                            <select>
+                                <option>Diuna</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label>Showings available</label>
+                        </li>
+                        <li>
+                            <label>Sits available</label>
+                        </li>
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>14</option>
+                            </select>
                         </li>
                         <br/>
                          <li>

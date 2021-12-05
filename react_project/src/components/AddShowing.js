@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const initialState = {
     movie: "Dune",
     date: "",
