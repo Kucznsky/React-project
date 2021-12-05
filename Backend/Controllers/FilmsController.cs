@@ -26,10 +26,16 @@ namespace Backend.Controllers
             return _context.Films;
             // return _context.Films.
         }
-        [HttpPost("/DEBUG")]
+        [HttpGet("/Film/{index}")]
+        public Film Get(int index)
+        {
+            return _context.Films.Find(index);
+        }
+        [HttpPost("DEBUG")]
         public void PostDebug()
         {
             _context.Films.Add(new Film { Title= "DEBUG", ScreeningTime= 1337 });
+            _context.SaveChanges();
         }
     }
 }
