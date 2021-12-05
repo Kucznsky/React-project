@@ -35,5 +35,11 @@ namespace Backend.Controllers
             return _context.Screenings
                     .Where(screening => screening.FilmID == filmID);
         }
+
+        [HttpPost]
+        public ActionResult AddScreenings([FromBody] IEnumerable<Screening> screenings)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

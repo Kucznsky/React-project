@@ -37,5 +37,25 @@ namespace Backend.Controllers
             _context.Films.Add(new Film { Title= "DEBUG", ScreeningTime= 1337 });
             _context.SaveChanges();
         }
+
+        [HttpPut]
+        public ActionResult Update([FromBody] Film film)
+        {
+            if (film is null)
+                return BadRequest(new ArgumentNullException("There is no film provided to update."));
+            
+            var filmToUpdate = _context.Films.Find(film.ID);
+            if (filmToUpdate is null)
+                return BadRequest(new NullReferenceException($"There is no film with given id in database (id: {film.ID})"));
+            
+            // TODO: Do we add checks for if film's screenings overlap with other film's screenings?
+            //  We could also solve it not allowing to change screening time of films.
+            filmToUpdate.ScreeningTime = film.ScreeningTime;
+            filmToUpdate.Title = film.Title;
+            _context.SaveChanges();
+
+            return Ok();
+        }
+        
     }
 }
