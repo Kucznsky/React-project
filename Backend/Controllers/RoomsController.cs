@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Backend.Data;
 using Backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,6 +12,7 @@ namespace Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableCors]
     public class RoomsController : ControllerBase
     {
         private readonly ILogger<RoomsController> _logger;

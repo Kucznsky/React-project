@@ -29,15 +29,14 @@ namespace Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(
-                    builder => {
-                        builder.AllowAnyHeader()
-                                .AllowAnyMethod()
-                                .AllowAnyOrigin();
-                    });
-            });
+            services.AddCors(options => {
+                    options.AddDefaultPolicy(
+                        builder => {
+                            builder.AllowAnyOrigin()
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                        });
+                });
 
             services.AddDbContext<AppDBContext>(options => options.UseSqlite("Data Source=KinoBazunia.db"));
             // services.AddDbContext<AppDBContext>(options =>
@@ -56,17 +55,18 @@ namespace Backend
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
+                app.UseDeveloperExceptionPage()
+                        .UseSwagger()
+                        .UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors();
 
             app.UseAuthorization();
+            
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
