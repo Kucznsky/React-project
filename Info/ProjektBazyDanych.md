@@ -27,3 +27,7 @@ Seans:
 ###  Wyświetlanie seansów w danym dniu (zaczynamy od bieżącego dnia i bieżącej godziny).
 ### Wyświetlanie popularności danego filmu w poszczególnych dniach
 <!-- TODO rozszerzyć i wyjaśnić co znaczy ten punkt -->
+
+
+### Jakie endpointy:
+
