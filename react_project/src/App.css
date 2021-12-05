@@ -81,6 +81,10 @@ h1 {
   padding: 1rem 2rem;
 }
 
+.book a {
+  text-decoration: none;
+}
+
 .listFirstLine {
   margin-top: 0.5rem;
   font-size: 2rem;
@@ -174,4 +178,11 @@ fieldset ul li {
 
 fieldset ul li label {
   font-weight: bold;
+}
+
+.error {
+  font-size: 1.2rem;
+  font-style: italic;
+  text-decoration: underline;
+  color: red;
 }

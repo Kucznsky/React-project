@@ -40,10 +40,10 @@ function App() {
           <Route exact path="/purchase">
             <Purchase></Purchase>
           </Route>
-          <Route exact path="/movies/add_movie">
+          <Route exact path="/add_movie">
             <AddMovie></AddMovie>
           </Route>
-           <Route exact path="/movies/edit_movie">
+           <Route exact path="/edit_movie">
             <EditMovie></EditMovie>
           </Route>
            <Route exact path="/repertoire/add_showing">
@@ -52,7 +52,7 @@ function App() {
            <Route exact path="/repertoire/edit_showing">
             <EditShowings></EditShowings>
           </Route>
-          <Route exact path="/movies/movie_popularuty">
+          <Route exact path="/movie_popularity">
             <MoviePopularity></MoviePopularity>
           </Route>
         </Switch>

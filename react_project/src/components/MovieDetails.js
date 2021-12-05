@@ -6,3 +6,17 @@ const MovieDetails = () => {
 }
 
 export default MovieDetails;
+
+//================================================
+/*const movie = [
+{
+  id: 1,
+  title: 'Diuna',
+  time: '155min',
+},
+{
+  id: 2,
+  title: 'DOM GUCCI',
+  time: '158min',
+},
+];*/

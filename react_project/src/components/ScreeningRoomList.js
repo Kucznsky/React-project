@@ -1,16 +1,27 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-const ScreeningRoomsList = () => {
+const ScreeningRoomsList = (props) => {
+  //const {room_nr,space} = props;
   return(  
     <section className='booklist'>
-      {room.map((room) => {
-        return (<Room key={room.id} {...room}></Room>);
-      })}
+      {room.map((room) => (
+       <article className='book' key={room.id}>
+        <p className='listFirstLine'>{"Room: "+room.room_nr}</p>
+        <p className='listSmallerText'>{room.space+" chairs"}</p>
+      </article>
+      ))}
     </section>
   );;
 }
 
-const Room = (props) => 
+ScreeningRoomsList.propTypes = {
+  room_nr: PropTypes.number,
+  space: PropTypes.number,
+}
+ 
+
+/*const Room = (props) => 
 {
   const {room, space} = props;
   return (
@@ -19,7 +30,7 @@ const Room = (props) =>
       <p className='listSmallerText'>{space}</p>
     </article>
   );
-}
+}*/
 
 
 
@@ -28,13 +39,13 @@ const Room = (props) =>
 const room = [
 {
   id: 1,
-  room: '1',
-  space: '100 chairs',
+  room_nr: 1,
+  space: 100,
 },
 {
   id: 2,
-  room: '2',
-  space: '50 chairs',
+  room_nr: 2,
+  space: 50,
 },
 ];
 //===================================================================================
