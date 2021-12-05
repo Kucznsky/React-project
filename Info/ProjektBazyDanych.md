@@ -21,7 +21,7 @@ Seans:
 ## Funkcjonalności:
 ### Możliwe operacje:
 -[x] Dodawanie i edycja filmu
-    -[ ] Usuwanie filmu
+    -[x] Usuwanie filmu
 -[ ] Dodawanie i edycja seansu
 -[x] Kupowanie biletu (seans, nr miejsca)
 ###  Wyświetlanie seansów w danym dniu (zaczynamy od bieżącego dnia i bieżącej godziny).

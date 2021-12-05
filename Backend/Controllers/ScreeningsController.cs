@@ -37,9 +37,41 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddScreenings([FromBody] IEnumerable<Screening> screenings)
+        public ActionResult AddRange([FromBody] IEnumerable<Screening> screenings)
         {
-            throw new NotImplementedException();
+            if (screenings is null || screenings.Any() is false)
+                return BadRequest(new ArgumentNullException("There was no screenings provided to add to database."));
+            
+            // Filter invalid screenings.
+            var screenings_filtered = screenings.Where(item =>
+                            _context.Rooms.Find(item.RoomID) is not null
+                            && _context.Films.Find(item.FilmID) is not null);
+            
+            _context.AddRange(screenings_filtered);
+            _context.SaveChanges();
+
+            return Ok($"Added {screenings_filtered.Count()} out of {screenings.Count()} screenings.");
+        }
+
+        [HttpPut]
+        public ActionResult Update([FromBody] Screening screening)
+        {
+            if (screening is null)
+                return BadRequest(new ArgumentNullException("There is no screening provided to update."));
+
+            var screeningToUpdate = _context.Screenings.Find(screening.ID);
+            if (screeningToUpdate is null)
+                return NotFound(new NullReferenceException($"There is no screening with provided id: {screening.ID}"));
+            if (_context.Films.Find(screening.FilmID) is null)
+                return NotFound(new NullReferenceException($"There is no film with provided id: {screening.FilmID}"));
+            if (_context.Rooms.Find(screening.RoomID) is null)
+                return NotFound(new NullReferenceException($"There is no room with provided id: {screening.RoomID}"));
+
+            screeningToUpdate.FilmID = screening.FilmID;
+            screeningToUpdate.RoomID = screening.RoomID;
+            _context.SaveChanges();
+            
+            return Ok();
         }
     }
 }

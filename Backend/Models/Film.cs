@@ -9,5 +9,12 @@ namespace Backend.Models
         public string Title { get; set; }
         // In minutes.
         public int ScreeningTime { get; set; }
+
+        public bool IsShowing { get; set; }
+
+        public Film()
+        {
+            IsShowing = true;
+        }
     }
 }

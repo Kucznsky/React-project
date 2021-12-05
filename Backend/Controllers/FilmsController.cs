@@ -56,6 +56,21 @@ namespace Backend.Controllers
 
             return Ok();
         }
-        
+
+        [HttpDelete]
+        public ActionResult Delete(int index)
+        {
+            var film = _context.Films.Find(index);
+            if (film is null)
+                return NotFound(new ArgumentException("There is no film with this ID."));
+
+            film.IsShowing = false;
+            _context.SaveChanges();
+
+            // Clean up database:
+            // var screenings = _context.Screenings.Where(item => item.FilmID == film.ID);
+
+            return Ok();
+        }
     }
 }
