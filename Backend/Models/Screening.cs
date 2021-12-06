@@ -13,6 +13,6 @@ namespace Backend.Models
         public int SoldTickets { get; set; }
         // public ICollection<int> TakenSeats { get; set; }
 
-        public DateTime BeginsAt;
+        public DateTime BeginsAt { get; set; }
     }
 }

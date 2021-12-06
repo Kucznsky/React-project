@@ -76,10 +76,20 @@ namespace Backend.Controllers
 
         /// wyświetlanie seansów w danym dniu, wyświetlanie aktualnie trwających seansów (zaczynamy od bieżącego dnia i bieżącej godziny) - 2pkt
 
+        // Gives list of screenings happening provided day.
         [HttpGet("ScreeningsInDay")]
-        public IEnumerable<Screening> GetByDay(DateTime day)
+        public ActionResult<IEnumerable<Screening>> GetByDay(DateTime? day)
         {
-            return _context.Screenings.Where(item => item.BeginsAt.Day == day.Day);
+            if (day.HasValue is false)
+                return BadRequest(new ArgumentNullException("You have to provide viable day as argument."));
+            
+            return Ok(_context.Screenings.Where(item => item.BeginsAt.Day == day.Value.Day));
+        }
+        [HttpGet("ScreeningNow")]
+        public IEnumerable<Screening> GetNow()
+        {
+            return _context.Screenings.Where(item => item.BeginsAt > DateTime.Now 
+                            && (item.BeginsAt - new TimeSpan(0, _context.Films.Find(item.FilmID).ScreeningTime, 0)) < DateTime.Now);
         }
     }
 }
