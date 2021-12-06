@@ -2,14 +2,21 @@ import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Proptypes from 'prop-types';
 import Axios from 'axios';
+import {ApiAddress} from '../GlobalConstants';
 
 const Repertoire = (props) => {
   const [screenings, setScreenings] = useState([])
+  const [films, setFilms] = useState([])
 
   useEffect(() => {
-      Axios.get("https://localhost:5001/Screenings")
-          .then(response => setScreenings(response.data));
-    }, []);
+      Axios.get(`${ApiAddress}Screenings`)
+          .then(response => setScreenings(response.data),
+              error => console.error(error)
+          )
+    }, [])
+  // useEffect(() => {
+  //   Axios.get("https://localhost:5001/Screenings")
+  // }, [screenings])
 
   //const {date,hour,sold,available,room_nr,free_chairs} = props;
   return(
@@ -23,7 +30,7 @@ const Repertoire = (props) => {
           <article className='book' >
             <p className='listFirstLine'>{item.id}</p>
             <p className='listFirstLine'>{item.filmID}</p>
-            <p className='listFirstLine'>{item.id}</p>
+            <p className='listFirstLine'>{item.roomID}</p>
             <p className='listFirstLine'>{item.id}</p>
             <p className='listFirstLine'>{item.id}</p>
             {/* <p className='listFirstLine'>{showing.title}</p>
