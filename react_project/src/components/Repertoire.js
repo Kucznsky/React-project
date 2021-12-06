@@ -1,31 +1,54 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Proptypes from 'prop-types';
+import Axios from 'axios';
 
 const Repertoire = (props) => {
+  const [screenings, setScreenings] = useState([])
+
+  useEffect(() => {
+      Axios.get("https://localhost:5001/Screenings")
+          .then(response => setScreenings(response.data));
+    }, []);
+
   //const {date,hour,sold,available,room_nr,free_chairs} = props;
-   return(
+  return(
     <article>
       <section className='center'>
-          <Link className='btn' to='/repertoire/add_showing'>Add showing</Link>
-          <Link className='btn' to='/repertoire/edit_showing'>Edit showing</Link>
-        </section>
+        <Link className='btn' to='/repertoire/add_showing'>Add screening</Link>
+        <Link className='btn' to='/repertoire/edit_showing'>Edit screening</Link>
+      </section>
       <section className='booklist'>
-        {showing.map((showing) => (
+        {screenings.map((item) => (
           <article className='book' >
-            <p className='listFirstLine'>{showing.title}</p>
+            <p className='listFirstLine'>{item.id}</p>
+            <p className='listFirstLine'>{item.filmID}</p>
+            <p className='listFirstLine'>{item.id}</p>
+            <p className='listFirstLine'>{item.id}</p>
+            <p className='listFirstLine'>{item.id}</p>
+            {/* <p className='listFirstLine'>{showing.title}</p>
             <p className='listSmallerText'>{showing.date}</p>
             <p className='listSmallerText'>{showing.hour}</p>
             <p className='listSmallerText'>{showing.sold}</p>
             <p className='listSmallerText'>{showing.available}</p>
             <p className='listSmallerText'>{"Room: "+showing.room_nr}</p>
-            <p className='listSmallerText'>{"free chairs: "+showing.free_chairs+","}</p>
+            <p className='listSmallerText'>{"free chairs: "+showing.free_chairs+","}</p> */}
           </article>
         ))}
       </section>
     </article>
   );
 }
+
+/*
+  public int ID { get; set; }
+  public int FilmID { get; set; }
+  public int RoomID { get; set; }
+  public int SoldTickets { get; set; }
+  // public ICollection<int> TakenSeats { get; set; }
+
+  public DateTime BeginsAt { get; set; }
+ */
 
 Repertoire.propTypes = {
   title: Proptypes.string,

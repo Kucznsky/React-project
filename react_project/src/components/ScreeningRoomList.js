@@ -1,42 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import PropTypes from 'prop-types';
+import Axios from 'axios';
 
-class ScreeningRoomsList extends React.Component {
-  //const {room_nr,space} = props;
-  constructor(props) {
-    super(props);
+const ScreeningRoomsList = () => {
+  const[room,setRoom] = useState([]);
 
-    this.state = {
-      room: []
-    };
-  }
-  
+  useEffect(() => {
+     Axios.get("https://localhost:5001/Rooms")
+        .then(res => setRoom(res.data));
+    }, []);
 
-
-  componentDidMount() {
-    const address = "https://localhost:5001/Rooms";
-    fetch(address,{
-      mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin':'*'
-      }
-      })
-      .then(response => response.json())
-      .then(data => this.setState({room: data.total}));
-  }
-
-  render() {
-    return(  
-      <section className='booklist'>
-        {this.state.room.map(room => (
-        <article className='book' key={room.id}>
-          <p className='listFirstLine'>{"Room: "+room.id}</p>
-          <p className='listSmallerText'>{room.capacity+" chairs"}</p>
-        </article>
-        ))}
-      </section>
-    );
-  }
+  return(  
+    <section className='booklist'>
+      {room.map(room => (
+      <article className='book' key={room.id}>
+        <p className='listFirstLine'>{"Room: "+room.id}</p>
+        <p className='listSmallerText'>{room.capacity+" chairs"}</p>
+      </article>
+      ))}
+    </section>
+  );
 }
 
 ScreeningRoomsList.propTypes = {
