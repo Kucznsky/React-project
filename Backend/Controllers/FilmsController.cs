@@ -31,12 +31,45 @@ namespace Backend.Controllers
         {
             return _context.Films.Find(index);
         }
+        // Pseudo GraphQL
+        [HttpPost("List")]
+        public ActionResult<IEnumerable<Film>> GetList([FromBody]IEnumerable<int> filmsToFetch)
+        {
+            filmsToFetch ??= new List<int>();
+            // Remove duplicates.
+            filmsToFetch = new HashSet<int>(filmsToFetch);
+
+            HashSet<Film> result = new();
+            foreach (int id in filmsToFetch)
+                result.Add(_context.Films.Find(id));
+            result.Remove(null);
+
+            return Ok(result);
+        }
+        [HttpPost]
+        public ActionResult AddRange([FromBody] IEnumerable<Film> films)
+        {
+            if (films is null || films.Any() is false)
+                return BadRequest(new ArgumentNullException("There was no films provided to add to database."));
+            
+            // Filter invalid screenings.
+            // var screenings_filtered = films.Where(item =>
+            //                 _context.Rooms.Find(item.RoomID) is not null
+            //                 && _context.Films.Find(item.FilmID) is not null);
+            
+            _context.AddRange(films);
+            _context.SaveChanges();
+
+            // return Ok($"Added {screenings_filtered.Count()} out of {screenings.Count()} screenings.");
+            return Ok();
+        }
         [HttpPost("DEBUG")]
         public void PostDebug()
         {
             _context.Films.Add(new Film { Title= "DEBUG", ScreeningTime= 1337 });
             _context.SaveChanges();
         }
+
 
         [HttpPut]
         public ActionResult Update([FromBody] Film film)
