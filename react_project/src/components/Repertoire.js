@@ -14,9 +14,16 @@ const Repertoire = (props) => {
               error => console.error(error)
           )
     }, [])
-  // useEffect(() => {
-  //   Axios.get("https://localhost:5001/Screenings")
-  // }, [screenings])
+  useEffect(() => {
+      Axios(`${ApiAddress}Films/List`, {
+              method: 'GET',
+              data: screenings.map(item => item.filmID)
+          })
+        .then(response => setScreenings(response.data),
+            error => console.error(error)
+        )
+    // Axios.get(`${ApiAddress}Films/List`)
+  }, [screenings])
 
   //const {date,hour,sold,available,room_nr,free_chairs} = props;
   return(

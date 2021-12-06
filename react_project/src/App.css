@@ -186,3 +186,9 @@ fieldset ul li label {
   text-decoration: underline;
   color: red;
 }
+
+.pic {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 6px;
+}
