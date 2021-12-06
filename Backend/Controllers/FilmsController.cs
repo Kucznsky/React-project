@@ -72,5 +72,16 @@ namespace Backend.Controllers
 
             return Ok();
         }
+
+        [HttpGet("FilmPopularity")]
+        public ActionResult<int> GetPopularity(DateTime? day)
+        {
+            if (day.HasValue is false)
+                return BadRequest(new ArgumentNullException("You have to provide viable day as argument."));
+            
+            var screeningsThatDay = _context.Screenings.Where(item => item.BeginsAt.Day == day.Value.Day);
+
+            return screeningsThatDay.Aggregate(0,  (sum, item) => sum + item.SoldTickets);
+        }
     }
 }
