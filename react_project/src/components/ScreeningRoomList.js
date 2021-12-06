@@ -26,7 +26,6 @@ class ScreeningRoomsList extends React.Component {
   }
 
   render() {
-    console.log(this.state.room)
     return(  
       <section className='booklist'>
         {this.state.room.map(room => (
