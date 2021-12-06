@@ -12,7 +12,7 @@ namespace Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [EnableCors]
+    // [EnableCors]
     public class RoomsController : ControllerBase
     {
         private readonly ILogger<RoomsController> _logger;

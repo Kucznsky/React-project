@@ -1,18 +1,43 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const ScreeningRoomsList = (props) => {
+class ScreeningRoomsList extends React.Component {
   //const {room_nr,space} = props;
-  return(  
-    <section className='booklist'>
-      {room.map((room) => (
-       <article className='book' key={room.id}>
-        <p className='listFirstLine'>{"Room: "+room.room_nr}</p>
-        <p className='listSmallerText'>{room.space+" chairs"}</p>
-      </article>
-      ))}
-    </section>
-  );;
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      room: []
+    };
+  }
+  
+
+
+  componentDidMount() {
+    const address = "https://localhost:5001/Rooms";
+    fetch(address,{
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin':'*'
+      }
+      })
+      .then(response => response.json())
+      .then(data => this.setState({room: data.total}));
+  }
+
+  render() {
+    console.log(this.state.room)
+    return(  
+      <section className='booklist'>
+        {this.state.room.map(room => (
+        <article className='book' key={room.id}>
+          <p className='listFirstLine'>{"Room: "+room.id}</p>
+          <p className='listSmallerText'>{room.capacity+" chairs"}</p>
+        </article>
+        ))}
+      </section>
+    );
+  }
 }
 
 ScreeningRoomsList.propTypes = {
@@ -36,7 +61,7 @@ ScreeningRoomsList.propTypes = {
 
 
 //===================================================================================
-const room = [
+/*const room = [
 {
   id: 1,
   room_nr: 1,
@@ -47,7 +72,7 @@ const room = [
   room_nr: 2,
   space: 50,
 },
-];
+];*/
 //===================================================================================
 
 export default ScreeningRoomsList;
