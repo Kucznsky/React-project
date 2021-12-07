@@ -1,7 +1,11 @@
 # Dokumentacja projektu aplikacji zarządzania kinem:
+
+
 ## Autorzy projektu:
 - Michał Kuczyński
 - Daniel Pietrzeniuk
+
+
 ## Architektura komponentów
 <!--TO DO-->
 ## Ścieżki i komponenty związane z routigniem:
