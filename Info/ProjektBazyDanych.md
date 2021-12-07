@@ -1,5 +1,8 @@
 # Projekt Bazy danych zarządzania seansami w kinie:
 
+## Ścieżki i komponenty związane z routigniem
+
+
 ## Modele:
 #### Z specyfikacji:
 Sala:
