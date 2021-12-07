@@ -1,61 +1,58 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Axios from "axios";
 
-const MovieList = (props) => {
-    //const {title,time}=props;
-    return(
-      <article>
-        <section className='center'>
-          <Link className='btn' to='/add_movie'>Add movie</Link>
-          <Link className='btn' to='/edit_movie'>Edit movie</Link>
-          <Link className='btn' to='/movie_popularity'>Movies popularity</Link>
-        </section>
-        <section className='booklist'>
-          {movie.map((movie) => (
-            <article className='book' key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>
-                <p className='listFirstLine'>{movie.title}</p>
-                <p className='listSmallerText'>{movie.time}min</p> 
-              </Link>
-            </article>           
-          ))}
-        </section>
-      </article>
+const MovieList = () => {
+  const[movie,setMovie] = useState([]);
+
+  useEffect(() => {
+    Axios.get("https://localhost:5001/Films")
+      .then(res => setMovie(res.data));
+  },[]);
+
+  return(
+    <article>
+      <section className='center'>
+        <Link className='btn' to='/add_movie'>Add movie</Link>
+        <Link className='btn' to='/edit_movie'>Edit movie</Link>
+        <Link className='btn' to='/movie_popularity'>Movies popularity</Link>
+      </section>
+      <section className='booklist'>
+        {movie.map((movie) => {
+          return(<Movie key={movie.id} {...movie}></Movie>);
+        })}
+      </section>
+    </article>
   );
 }
 
-MovieList.propTypes = {
-  title: PropTypes.string,
-  time: PropTypes.number,
-}
-
-/*const Movie = (props) => 
+const Movie = (props) => 
 {
-  const {title, time} = props;
+  const {id, title, screeningTime} = props;
   return (
     <article className='book'>
-      <Link to={`/movies/${movie.id}`}>
+      <Link to={`/movies/${id}`}>
         <p className='listFirstLine'>{title}</p>
-        <p className='listSmallerText'>{time}</p> 
+        <p className='listSmallerText'>{screeningTime}min</p> 
       </Link>
     </article>
   );
-}*/
+}
 
-//======================================================================
-const movie = [
-{
-  id: 1,
-  title: 'Diuna',
-  time: 155,
-},
-{
-  id: 2,
-  title: 'DOM GUCCI',
-  time: 158,
-},
-];
-//======================================================================
+Movie.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  screeningTime: PropTypes.number,
+}
 
 export default MovieList;
+
+        /*{movie.map((movie) => (
+          <article className='book' key={movie.id}>
+            <Link to={`/movies/${movie.id}`}>
+              <p className='listFirstLine'>{movie.title}</p>
+              <p className='listSmallerText'>{movie.screeningTime}min</p> 
+            </Link>
+          </article>           
+        ))}*/

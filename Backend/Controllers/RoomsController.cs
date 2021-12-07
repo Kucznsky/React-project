@@ -35,7 +35,7 @@ namespace Backend.Controllers
         [HttpGet("DEBUG/Mock_types")]
         public IEnumerable<object> DEBUG_MockGet_Types()
         {
-            return new List<object>{ new {ID= "It's a string", Capacity=420 } };
+            return new List<object> { new { ID = "It's a string", Capacity = 420 } };
         }
     }
 }
