@@ -47,12 +47,3 @@ Movie.propTypes = {
 }
 
 export default MovieList;
-
-        /*{movie.map((movie) => (
-          <article className='book' key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
-              <p className='listFirstLine'>{movie.title}</p>
-              <p className='listSmallerText'>{movie.screeningTime}min</p> 
-            </Link>
-          </article>           
-        ))}*/

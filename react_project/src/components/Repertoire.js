@@ -2,24 +2,27 @@ import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Proptypes from 'prop-types';
 import Axios from 'axios';
-import {ApiAddress} from '../GlobalConstants';
+// import {ApiAddress} from '../GlobalConstants';
+
+const ApiAddress = "https://localhost:5001/"
 
 const Repertoire = (props) => {
-  const [screenings, setScreenings] = useState([])
-  const [films, setFilms] = useState([])
-
+  const [screenings, setScreenings] = useState(null)
+  const [films, setFilms] = useState(null)
+  
   useEffect(() => {
       Axios.get(`${ApiAddress}Screenings`)
-          .then(response => setScreenings(response.data),
+          .then(response => { setScreenings(response.data); console.log("Fetched screenings:"); console.log(response.data)},
               error => console.error(error)
           )
     }, [])
   useEffect(() => {
+    if(screenings)
       Axios(`${ApiAddress}Films/List`, {
-              method: 'GET',
+              method: 'POST',
               data: screenings.map(item => item.filmID)
           })
-        .then(response => setScreenings(response.data),
+        .then(response => { setFilms(response.data); console.log("Fetched films by list:"); console.log(response.data); },
             error => console.error(error)
         )
     // Axios.get(`${ApiAddress}Films/List`)
@@ -33,20 +36,12 @@ const Repertoire = (props) => {
         <Link className='btn' to='/repertoire/edit_showing'>Edit screening</Link>
       </section>
       <section className='booklist'>
-        {screenings.map((item) => (
-          <article className='book' >
-            <p className='listFirstLine'>{item.id}</p>
-            <p className='listFirstLine'>{item.filmID}</p>
+        {!screenings ? "" : screenings.map((item) => (
+          <article className='book' key={item.id}>
+            <p className='listFirstLine'>Film: {!films ? ("...") : (films.find(film => film.id === item.filmID).title)}</p>
             <p className='listFirstLine'>{item.roomID}</p>
-            <p className='listFirstLine'>{item.id}</p>
-            <p className='listFirstLine'>{item.id}</p>
-            {/* <p className='listFirstLine'>{showing.title}</p>
-            <p className='listSmallerText'>{showing.date}</p>
-            <p className='listSmallerText'>{showing.hour}</p>
-            <p className='listSmallerText'>{showing.sold}</p>
-            <p className='listSmallerText'>{showing.available}</p>
-            <p className='listSmallerText'>{"Room: "+showing.room_nr}</p>
-            <p className='listSmallerText'>{"free chairs: "+showing.free_chairs+","}</p> */}
+            <p className='listFirstLine'>SoldTickets: {item.soldTickets}</p>
+            <p className='listFirstLine'>id: {item.id}</p>
           </article>
         ))}
       </section>
@@ -64,15 +59,15 @@ const Repertoire = (props) => {
   public DateTime BeginsAt { get; set; }
  */
 
-Repertoire.propTypes = {
-  title: Proptypes.string,
-  date: Proptypes.string,
-  hour: Proptypes.string,
-  sold: Proptypes.number,
-  available: Proptypes.number,
-  room_nr: Proptypes.number,
-  free_chairs: Proptypes.array,
-}
+// Repertoire.propTypes = {
+//   title: Proptypes.string,
+//   date: Proptypes.string,
+//   hour: Proptypes.string,
+//   sold: Proptypes.number,
+//   available: Proptypes.number,
+//   room_nr: Proptypes.number,
+//   free_chairs: Proptypes.array,
+// }
 
 /*const Showing = (props) =>
 {
@@ -91,36 +86,36 @@ Repertoire.propTypes = {
 }*/
 
 //=============================================================
-const showing = [{
-  id: 1,
-  title: 'Diuna',
-  date: '24.11.2021',
-  hour: '18:30',
-   sold: 40,
-  available: 10,
-  room_nr: 2,
-  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
-},
-{
-  id: 2,
-  title: 'Diuna',
-  date: '24.11.2021',
-  hour: '20:00',
-    sold: 40,
-  available: 10,
-  room_nr: 2,
-  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
-},
-{
-  id: 3,
-  title: 'Diuna',
-  date: '26.11.2021',
-  hour: '17:00',
-   sold: 40,
-  available: 10,
-  room_nr: 2,
-  free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
-},
-];
+// const showing = [{
+//   id: 1,
+//   title: 'Diuna',
+//   date: '24.11.2021',
+//   hour: '18:30',
+//    sold: 40,
+//   available: 10,
+//   room_nr: 2,
+//   free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
+// },
+// {
+//   id: 2,
+//   title: 'Diuna',
+//   date: '24.11.2021',
+//   hour: '20:00',
+//     sold: 40,
+//   available: 10,
+//   room_nr: 2,
+//   free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
+// },
+// {
+//   id: 3,
+//   title: 'Diuna',
+//   date: '26.11.2021',
+//   hour: '17:00',
+//    sold: 40,
+//   available: 10,
+//   room_nr: 2,
+//   free_chairs: ['1','2','3','4','5','6','7','8','9','10'],
+// },
+// ];
 
 export default Repertoire;

@@ -31,10 +31,27 @@ namespace Backend.Controllers
         {
             return _context.Films.Find(index);
         }
+        [HttpPost]
+        public ActionResult AddRange([FromBody] IEnumerable<Film> films)
+        {
+            if (films is null || films.Any() is false)
+                return BadRequest(new ArgumentNullException("There was no films provided to add to database."));
+
+            // Filter invalid screenings.
+            // var screenings_filtered = films.Where(item =>
+            //                 _context.Rooms.Find(item.RoomID) is not null
+            //                 && _context.Films.Find(item.FilmID) is not null);
+
+            _context.AddRange(films);
+            _context.SaveChanges();
+
+            // return Ok($"Added {screenings_filtered.Count()} out of {screenings.Count()} screenings.");
+            return Ok();
+        }
         [HttpPost("DEBUG")]
         public void PostDebug()
         {
-            _context.Films.Add(new Film { Title= "DEBUG", ScreeningTime= 1337 });
+            _context.Films.Add(new Film { Title = "DEBUG", ScreeningTime = 1337 });
             _context.SaveChanges();
         }
 
@@ -43,11 +60,11 @@ namespace Backend.Controllers
         {
             if (film is null)
                 return BadRequest(new ArgumentNullException("There is no film provided to update."));
-            
+
             var filmToUpdate = _context.Films.Find(film.ID);
             if (filmToUpdate is null)
                 return BadRequest(new NullReferenceException($"There is no film with given id in database (id: {film.ID})"));
-            
+
             // TODO: Do we add checks for if film's screenings overlap with other film's screenings?
             //  We could also solve it not allowing to change screening time of films.
             filmToUpdate.ScreeningTime = film.ScreeningTime;
@@ -78,10 +95,10 @@ namespace Backend.Controllers
         {
             if (day.HasValue is false)
                 return BadRequest(new ArgumentNullException("You have to provide viable day as argument."));
-            
+
             var screeningsThatDay = _context.Screenings.Where(item => item.BeginsAt.Day == day.Value.Day);
 
-            return screeningsThatDay.Aggregate(0,  (sum, item) => sum + item.SoldTickets);
+            return screeningsThatDay.Aggregate(0, (sum, item) => sum + item.SoldTickets);
         }
     }
 }

@@ -12,10 +12,12 @@ const MovieDetails = () => {
   },[]);
 
   return(
-    <article>
-      <p className='listFirstLine'>{movie.title}</p>
-      <p className='listSmallerText'>{movie.screeningTime}min</p> 
-      <img className='pic' name="PLACEHOLDER" src="https://preview.redd.it/wvzoz6ejs8v51.jpg?auto=webp&s=bbe9c737a52630a15573a0f461e316e757a26aa1" alt="placeholder"></img>
+    <article className='booklist'>
+      <section className='book2'>
+        <p className='listFirstLine'>{movie.title}</p>
+        <p className='listSmallerText'>{movie.screeningTime}min</p> 
+        <img className='pic' name="PLACEHOLDER" src="https://preview.redd.it/wvzoz6ejs8v51.jpg?auto=webp&s=bbe9c737a52630a15573a0f461e316e757a26aa1" alt="placeholder"></img>
+      </section>
     </article>
   );
 }

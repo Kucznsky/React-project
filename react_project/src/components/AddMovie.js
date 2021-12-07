@@ -1,10 +1,11 @@
 import React from "react";
+import Axios from "axios";
 
     const initialtState = {
         title:"",
-        time:"",
+        screeningTime:"",
         titleError:"",
-        timeError:"",
+        screeningTimeError:"",
     }
 
 class AddMovie extends React.Component {
@@ -17,7 +18,7 @@ class AddMovie extends React.Component {
 
     validate = () => {
         let titleError="";
-        let timeError="";
+        let screeningTimeError="";
 
         if(!(this.state.title.charAt(0) === this.state.title.charAt(0).toUpperCase())) {
             titleError = "Title has to begin with the capital letter";
@@ -25,15 +26,15 @@ class AddMovie extends React.Component {
         if(this.state.title === "") {
             titleError = "You have to type a title of the movie";
         }
-        if(isNaN(this.state.time)) {
-            timeError = "You have to type a number"
+        if(isNaN(this.state.screeningTime)) {
+            screeningTimeError = "You have to type a number"
         }
-        if(this.state.time === "") {
-            timeError = "You have to type a time of the movie"
+        if(this.state.screeningTime === "") {
+            screeningTimeError = "You have to type a time of the movie"
         }
 
-        if(titleError !== "" || timeError !== "") {
-            this.setState({titleError, timeError});
+        if(titleError !== "" || screeningTimeError !== "") {
+            this.setState({titleError, screeningTimeError});
             return false;
         }
         return true;
@@ -46,8 +47,15 @@ class AddMovie extends React.Component {
         if(isValid) {
             //========================//
             console.log(this.state);
-            this.setState(initialtState);
+            Axios.post("https://localhost:5001/Films", [{title: this.state.title, screeningTime: this.state.screeningTime}])
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.log(error);
+                })
             //========================//
+            this.setState(initialtState);
         }
     };
 
@@ -74,13 +82,13 @@ class AddMovie extends React.Component {
                             <label>Time (minutes)</label>
                         </li>
                         <li>
-                            <input 
-                                type='text' 
-                                name="time"
-                                value={this.state.time} 
+                            <input  
+                                type="text" 
+                                name="screeningTime"
+                                value={this.state.screeningTime} 
                                 onChange={this.handleChange}
                             />
-                            <p className='error'>{this.state.timeError}</p>
+                            <p className='error'>{this.state.screeningTimeError}</p>
                         </li>
                         <hr/>
                         <br/>

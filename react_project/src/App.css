@@ -81,6 +81,16 @@ h1 {
   padding: 1rem 2rem;
 }
 
+.book2 {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.book2 > * {
+  margin: 0.5rem;
+}
+
 .book a {
   text-decoration: none;
 }
