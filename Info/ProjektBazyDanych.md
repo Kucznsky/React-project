@@ -1,4 +1,4 @@
-#Dokumentacja projektu aplikacji zarządzania kinem:
+# Dokumentacja projektu aplikacji zarządzania kinem:
 ## Autorzy projektu:
 - Michał Kuczyński
 - Daniel Pietrzeniuk
