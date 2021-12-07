@@ -1,17 +1,17 @@
 # Projekt Bazy danych zarządzania seansami w kinie:
 
 ## Ścieżki i komponenty związane z routigniem:
-- "/": <HomePage/>
-- "/repertoire":<Repertoire/>
-- "/rooms":<ScreeningRoomsList/>
-- "/movies":<MovieList/>
-- "/movies/:id":<MovieDetails/>
-- "/purchase/:id":<Purchase/>
-- "/add_movie":<AddMovie/>
-- "/edit_movie":<EditMovie/>
-- "/repertoire/add_showing":<AddShowing/>
-- "/repertoire/edit_showing":<EditShowings/>
-- "/movie_popularity":<MoviePopularity/>
+- "/": "<HomePage/>" 
+- "/repertoire": "<Repertoire/>"
+- "/rooms": "<ScreeningRoomsList/>"
+- "/movies": "<MovieList/>"
+- "/movies/:id": "<MovieDetails/>"
+- "/purchase/:id": "<Purchase/>"
+- "/add_movie": "<AddMovie/>"
+- "/edit_movie": "<EditMovie/>"
+- "/repertoire/add_showing": "<AddShowing/>"
+- "/repertoire/edit_showing": "<EditShowings/>"
+- "/movie_popularity": "<MoviePopularity/>"
 ## API serwera:
 -"https://localhost:5001/swagger/"
 ## Modele:
