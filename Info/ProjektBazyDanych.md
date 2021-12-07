@@ -1,5 +1,7 @@
-# Projekt Bazy danych zarządzania seansami w kinie:
-
+# Dokumentacja projektu aplikacji zarządzania kinem:
+<p style="display: flex, justify-content: center">Aplikacja do zarządzania kinek</p>
+##architektura komponentów
+<!--TO DO-->
 ## Ścieżki i komponenty związane z routigniem:
 - "/": "<HomePage/>" 
 - "/repertoire": "<Repertoire/>"
@@ -12,8 +14,12 @@
 - "/repertoire/add_showing": "<AddShowing/>"
 - "/repertoire/edit_showing": "<EditShowings/>"
 - "/movie_popularity": "<MoviePopularity/>"
+## Dane w store:
+<!-- TODO  -->
 ## API serwera:
--"https://localhost:5001/swagger/"
+<!-- TODO  -->
+## Wybrane przez autorów, szczególnie ciekawe fragmenty kodu:
+<!-- TODO  -->
 ## Modele:
 #### Z specyfikacji:
 Sala:
@@ -41,8 +47,8 @@ TakenSeat:
     - [x] Usuwanie filmu
 - [x] Dodawanie i edycja seansu
 - [x] Kupowanie biletu (seans, nr miejsca)
-###  Wyświetlanie seansów w danym dniu (zaczynamy od bieżącego dnia i bieżącej godziny).
-### Wyświetlanie popularności danego filmu w poszczególnych dniach
+###  Wyświetlanie seansów w danym dniu oraz seansów odbywających się obecnie (zaczynamy od bieżącego dnia i bieżącej godziny).
+### Wyświetlanie popularności filmów w danych dniach (ilości sprzedanych biletów na dany film danego dnia)
 <!-- TODO rozszerzyć i wyjaśnić co znaczy ten punkt -->
 
 
@@ -78,3 +84,23 @@ TakenSeat:
 - [ ] architektura Flux - 3pkt
 - [ ] testy jednostkowe/integracyjne komponentów (minimalnie 2 z 5 rodzajów:  renderowania, zdarzeń, przesyłania właściwości, komunikacji z serwerem, routing, za każdy napisany test 0,5pkt) - 3pkt
 - [ ] testy architektury Flux (całej) - 2pkt
+
+##Dodatkowe biblioteki użyte w aplikacji: link oraz zdanie opisu biblioteki i celu użycia.
+### React-router-dom
+- https://www.npmjs.com/package/react-router-dom
+- Biblioteka zawierająca elementy niezbędne do dodania w aplikacji routingu.
+- Cel: Dodanie routingu komponentów w celu wydzielenia poszczególnych funkcjonalności w aplikacji w oddzielnych widokach przy jednoczesnym zachowaniu zasad aplikacji SPA.
+### Axios
+- https://www.npmjs.com/package/axios
+- Biblioteka umożliwiająca komunikację aplikacji z serwerem danych.
+- Cel: Wykorzystanie axios.get do pobrania danych, axios.post do wysłania danych, axios.put do edycji danych oraz axios.delete do usunięcia danych.
+### React Date Picker
+- https://www.npmjs.com/package/react-datepicker
+- Biblioteka dodaje gotowy komponent w postaci interaktywnego kalendarza, za pomocą któego można wybierać datę.
+- Cel: komponent DatePicker został użyty w komponencie MoviePopularity służącym do sprawdzania ile biletów zostało zakupionych na poszczególne filmy w danym dniu.
+### Font awesome
+- https://www.npmjs.com/package/font-awesome
+- Biblioteka zawiera gotowe ikony.
+- Cel: Użycie wybranych ikon w celu zwiększenia estetyki interfejsu aplikacji.
+## Podział pracy w zespole:
+<!-- TODO  -->
