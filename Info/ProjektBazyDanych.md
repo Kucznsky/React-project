@@ -8,7 +8,7 @@
 
 ## Architektura komponentów
 <!--TO DO-->
-## Ścieżki i komponenty związane z routigniem:
+## Ścieżki i komponenty związane z routingiem:
 - "/": HomePage
 - "/repertoire": Repertoire
 - "/rooms": ScreeningRoomsList
