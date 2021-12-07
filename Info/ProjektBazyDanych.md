@@ -1,9 +1,12 @@
 # Dokumentacja projektu aplikacji zarządzania kinem:
-<p style="display: flex, justify-content: center">Aplikacja do zarządzania kinek</p>
+
 ##architektura komponentów
 <!--TO DO-->
 ## Ścieżki i komponenty związane z routigniem:
-- "/": "<HomePage/>" 
+<ul>
+    <li>
+        "/": "<HomePage/>" 
+    </li>
 - "/repertoire": "<Repertoire/>"
 - "/rooms": "<ScreeningRoomsList/>"
 - "/movies": "<MovieList/>"
@@ -14,6 +17,7 @@
 - "/repertoire/add_showing": "<AddShowing/>"
 - "/repertoire/edit_showing": "<EditShowings/>"
 - "/movie_popularity": "<MoviePopularity/>"
+<ul>
 ## Dane w store:
 <!-- TODO  -->
 ## API serwera:
@@ -85,7 +89,7 @@ TakenSeat:
 - [ ] testy jednostkowe/integracyjne komponentów (minimalnie 2 z 5 rodzajów:  renderowania, zdarzeń, przesyłania właściwości, komunikacji z serwerem, routing, za każdy napisany test 0,5pkt) - 3pkt
 - [ ] testy architektury Flux (całej) - 2pkt
 
-##Dodatkowe biblioteki użyte w aplikacji: link oraz zdanie opisu biblioteki i celu użycia.
+## Dodatkowe biblioteki użyte w aplikacji: link oraz zdanie opisu biblioteki i celu użycia.
 ### React-router-dom
 - https://www.npmjs.com/package/react-router-dom
 - Biblioteka zawierająca elementy niezbędne do dodania w aplikacji routingu.
