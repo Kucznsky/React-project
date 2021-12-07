@@ -31,8 +31,6 @@ namespace Backend.Controllers
         {
             return _context.Films.Find(index);
         }
-<<<<<<< HEAD
-=======
         // Pseudo GraphQL
         [HttpPost("List")]
         public ActionResult<IEnumerable<Film>> GetList([FromBody]IEnumerable<int> filmsToFetch)
@@ -48,26 +46,19 @@ namespace Backend.Controllers
 
             return Ok(result);
         }
->>>>>>> 7e03d810c42a12cc292b5ee87446fa01cf40362e
         [HttpPost]
         public ActionResult AddRange([FromBody] IEnumerable<Film> films)
         {
             if (films is null || films.Any() is false)
                 return BadRequest(new ArgumentNullException("There was no films provided to add to database."));
-<<<<<<< HEAD
 
-=======
             
->>>>>>> 7e03d810c42a12cc292b5ee87446fa01cf40362e
             // Filter invalid screenings.
             // var screenings_filtered = films.Where(item =>
             //                 _context.Rooms.Find(item.RoomID) is not null
             //                 && _context.Films.Find(item.FilmID) is not null);
-<<<<<<< HEAD
 
-=======
             
->>>>>>> 7e03d810c42a12cc292b5ee87446fa01cf40362e
             _context.AddRange(films);
             _context.SaveChanges();
 
