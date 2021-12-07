@@ -1,4 +1,4 @@
-<h1> Dokumentacja projektu aplikacji zarządzania kinem: </h1>
+<h1>Dokumentacja projektu aplikacji zarządzania kinem:</h1>
 ## Autorzy projektu:
 - Michał Kuczyński
 - Daniel Pietrzeniuk
