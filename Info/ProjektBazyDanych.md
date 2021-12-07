@@ -1,6 +1,6 @@
 # Dokumentacja projektu aplikacji zarządzania kinem:
 
-##architektura komponentów
+## Architektura komponentów
 <!--TO DO-->
 ## Ścieżki i komponenty związane z routigniem:
 - "/": HomePage
@@ -14,7 +14,7 @@
 - "/repertoire/add_showing": AddShowing
 - "/repertoire/edit_showing": EditShowings
 - "/movie_popularity": MoviePopularity
-<ul>
+- "/purchase/success": Purchase_success
 ## Dane w store:
 <!-- TODO  -->
 ## API serwera:
