@@ -71,4 +71,4 @@
 ## Podział pracy w zespole:
 
 - Daniel Pietrzeniuk: backend, Purchase, HomePage, Repertoire
-  -Michał Kuczyński: Routing, PropTypes, walidacja, HomeBar, AddMovie, MovieList, ScreeningRoomList, stylizacja w CSS
+- Michał Kuczyński: Routing, PropTypes, walidacja, HomeBar, AddMovie, MovieList, ScreeningRoomList, stylizacja w CSS
