@@ -1,45 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, Link, useHistory } from "react-router-dom"
+import Proptypes from 'prop-types';
+import Axios from 'axios';
+import select from 'react-select'
 
-const initialState = {
-    movie: "Dune",
-    date: "",
-    hour: "",
-    screening_room: "1",
-    //movieError: "",
-    dateError:"",
-    hourError:"",
-    //screening_roomError:"",
-}
+const ApiAddress = "https://localhost:5001/"
+
+// const initialState = {
+//     movie: "Dune",
+//     date: "",
+//     hour: "",
+//     screening_room: "1",
+//     //movieError: "",
+//     dateError:"",
+//     hourError:"",
+//     //screening_roomError:"",
+// }
 
 class AddShowing extends React.Component {
+    // history = useHistory()
 
-    state = initialState;
+    // state = initialState;
+    state = {
+        movie: null,
+        movie_options: null,
+        room: null,
+        room_options: null,
+        date: null,
+        hour: null,
+        
+        /*
+        public int ID { get; set; }
+        public string Title { get; set; }
+        // In minutes.
+        public int ScreeningTime { get; set; }
+
+        public bool IsShowing { get; set; }
+         */
+        screening: {
+            id: 0, filmID: 0, roomID: 0, soldTickets: 0, beginsAt: Date.now
+        }
+    }
+    /*
+  public int ID { get; set; }
+  public int FilmID { get; set; }
+  public int RoomID { get; set; }
+  public int SoldTickets { get; set; }
+  // public ICollection<int> TakenSeats { get; set; }
+
+  public DateTime BeginsAt { get; set; }
+ */
 
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value});
     }
 
     validate = () => {
-        //let movieError= "";
         let dateError="";
         let hourError="";
-        //let screening_roomError="";
-
-       /* if(this.state.movie === "") {
-            movieError = "You have to choose a movie";
-        }*/
         if(this.state.date === "") {
             dateError = "You have to choose a date";
         }
         if(this.state.hour === "") {
             hourError = "You have to choose an hour";
         }
-        /*if(this.state.screening_room === "") {
-            screening_roomError = "You have to choose a room";
-        }
-          if(isNaN(this.state.screening_room)) {
-            screening_roomError = "You have to type a number of the screening room";
-        }*/
 
         if(/*movieError !== "" ||*/ dateError !== "" || hourError !== "" /*|| screening_roomError !== ""*/) {
             this.setState({/*movieError,*/dateError, hourError/*, screening_roomError*/});
@@ -48,17 +72,29 @@ class AddShowing extends React.Component {
         return true;
     };
 
+    constructor() {
+        super()
+        Axios(`${ApiAddress}Films`, {
+                method: 'GET'
+            })
+        .then(response => { this.state.movie_options = response.data; console.log("Fetched films:"); console.log(response); },
+            error => console.error(error)
+        )
+    }
+
     handleSubmit = event => {
+        // const history = useHistory()
         event.preventDefault();
         const isValid = this.validate();
 
         if(isValid) {
             //========================//
             console.log(this.state);
-            this.setState(initialState);
+            // this.setState(initialState);
             //========================//
         }
 
+        // history.goBack()
     }
 
     render() {
@@ -73,13 +109,14 @@ class AddShowing extends React.Component {
                         <li>
                             <select
                                 name="movie"
-                                value={this.state.movie}
+                                // value={this.state.movie}
                                 onChange={this.handleChange}
                             >
-                                    <option>Dune</option>
-                                    <option>DOM GUCCI</option>
+                                {!this.state.movie_options ? "Loading..." : this.state.movie_options.map((movie) => (
+                                    <option value={movie.id}>{movie.title}</option>
+                                ))}
                             </select>
-                            <p className='error'>{this.state.movieError}</p>
+                            {/* <p className='error'>{this.state.movieError}</p> */}
                         </li>
                         <hr />
                         <li>
@@ -89,11 +126,11 @@ class AddShowing extends React.Component {
                             <input 
                                 type='date'
                                 name="date"
-                                value={this.state.date}
+                                // value={this.state.date}
                                 onChange={this.handleChange}
 
                             />
-                            <p className='error'>{this.state.dateError}</p>
+                            {/* <p className='error'>{this.state.dateError}</p> */}
                         </li>
                         <hr/>
                         <li>
@@ -103,10 +140,10 @@ class AddShowing extends React.Component {
                             <input 
                                 type='time'
                                 name="hour"
-                                value={this.state.hour}
+                                // value={this.state.hour}
                                 onChange={this.handleChange}
                             />
-                            <p className='error'>{this.state.hourError}</p>
+                            {/* <p className='error'>{this.state.hourError}</p> */}
                         </li>
                         <hr/>
                         <li>
@@ -115,13 +152,13 @@ class AddShowing extends React.Component {
                         <li>
                             <select
                                 name="screening_room"
-                                value={this.state.screening_room}
+                                // value={this.state.screening_room}
                                 onChange={this.handleChange}
                             >
                                     <option>1</option>
                                     <option>2</option>
                             </select>
-                            <p className='error'>{this.state.screening_roomError}</p>
+                            {/* <p className='error'>{this.state.screening_roomError}</p> */}
                         </li>
                         <hr/>
                         <br/>

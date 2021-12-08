@@ -51,6 +51,7 @@ h1 {
   color: rgba(255, 255, 255, 0.2);
   margin-left: 0.4rem;
   margin-right: 0.4rem;
+  text-decoration: none;
 }
 
 .links:hover {
@@ -64,11 +65,17 @@ h1 {
 .booklist {
   width: 90vw;
   max-width: 1170px;
-  margin: 5rem;
+  margin: 6rem;
   display: flex;
   justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
+
+.booklist {
+  flex-basis: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .booklist {
     grid-template-columns: repeat(3, 1fr);
@@ -78,7 +85,10 @@ h1 {
 .book {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
+  width: 10rem;
+  height: auto;
   padding: 1rem 2rem;
+  overflow-wrap: break-word;
 }
 
 .book2 {
@@ -97,20 +107,22 @@ h1 {
 
 .listFirstLine {
   margin-top: 0.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #555;
 }
 
 .book:hover {
   background: rgba(0, 0, 0, 0.9);
   padding: 2rem 4rem;
+  width: 12rem;
+  height: auto;
   box-shadow: 0 8px 16px 0 rgba(59, 89, 601, 0.2),
     0 6px 20px 0 rgba(59, 89, 601, 0.19);
   transition: 0.9s;
 }
 
 .book:hover .listFirstLine {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #fff;
   -webkit-text-stroke: 0.5px #3b5999;
   text-shadow: 0 0 5px rgba(59, 89, 601, 0.5);
@@ -119,7 +131,7 @@ h1 {
 }
 
 .listSmallerText {
-  color: #666;
+  color: #555;
   font-weight: bold;
   font-size: 0.9rem;
   margin-top: 0.25rem;
@@ -157,6 +169,11 @@ h1 {
 
 .center > * {
   margin: 0.5rem;
+}
+
+.center p {
+  font-style: italic;
+  color: #555;
 }
 
 fieldset {

@@ -11,11 +11,13 @@ const ScreeningRoomsList = () => {
     }, []);
 
   return(  
-    <section className='booklist'>
-      {room.map((room) => {
-        return(<Room key={room.id} {...room}></Room>);
-      })}
-    </section>
+    <article className='center'>
+      <section className='booklist'>
+        {room.map((room) => {
+          return(<Room key={room.id} {...room}></Room>);
+        })}
+      </section>
+    </article>
   );
 }
 
@@ -23,10 +25,10 @@ const Room = (props) =>
 {
   const {id, capacity} = props;
   return (
-    <article className='book'>
+    <section className='book'>
       <p className='listFirstLine'>{"Room: "+id}</p>
       <p className='listSmallerText'>{capacity+" chairs"}</p>
-    </article>
+    </section>
   );
 }
 

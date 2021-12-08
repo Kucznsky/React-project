@@ -1,5 +1,7 @@
 import logo from './logo.png'
 import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faHome, faVideo, faFilm, faCouch} from '@fortawesome/free-solid-svg-icons'
 
 const HomeBar = () => {
   //const [active, setActive] = useState("FirstPage")
@@ -9,23 +11,19 @@ const HomeBar = () => {
         <img src={logo} alt="logo" />
         <ul className="mainBar">
           <li>
-            <Link className='links' to='/'>Home</Link>     
+            <Link className='links' to='/'>Home  <FontAwesomeIcon icon={faHome}></FontAwesomeIcon></Link>     
           </li>
           <hr />
           <li>
-            <Link className='links' to='/repertoire'>Repertoire</Link>
+            <Link className='links' to='/repertoire'>Repertoire  <FontAwesomeIcon icon={faVideo}></FontAwesomeIcon></Link>
           </li>
           <hr />
           <li>
-            <Link className='links' to='/rooms'>Screening rooms</Link>
+            <Link className='links' to='/rooms'>Screening rooms  <FontAwesomeIcon icon={faCouch}></FontAwesomeIcon></Link>
           </li>
           <hr />
           <li>
-            <Link className='links' to='/movies'>Movies</Link>
-          </li>
-          <hr />
-          <li>
-            <Link className='links' to='/purchase'>Buy Ticket</Link>
+            <Link className='links' to='/movies'>Movies  <FontAwesomeIcon icon={faFilm}></FontAwesomeIcon></Link>
           </li>
         </ul>
       </div>

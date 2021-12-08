@@ -7,6 +7,7 @@ import Repertoire from './components/Repertoire';
 import ScreeningRoomsList from './components/ScreeningRoomList';
 import MovieList from './components/MovieList';
 import Purchase from './components/Purchase';
+import Purchase_success from './components/Purchase_success';
 import AddMovie from './components/AddMovie';
 import EditMovie from './components/EditMovies';
 import AddShowing from './components/AddShowing';
@@ -24,7 +25,7 @@ function App() {
             <HomePage></HomePage>
           </Route>
           <Route exact path="/repertoire">
-            <Repertoire></Repertoire>
+            <Repertoire all={true}></Repertoire>
           </Route>
           <Route exact path="/rooms">
             <ScreeningRoomsList></ScreeningRoomsList>
@@ -37,19 +38,22 @@ function App() {
             <MovieDetails></MovieDetails>
           </Route>
           
-          <Route exact path="/purchase">
+          <Route exact path="/purchase/:id">
             <Purchase></Purchase>
+          </Route>
+          <Route exact path="/purchase/success">
+            <Purchase_success></Purchase_success>
           </Route>
           <Route exact path="/add_movie">
             <AddMovie></AddMovie>
           </Route>
-           <Route exact path="/edit_movie">
+          <Route exact path="/edit_movie">
             <EditMovie></EditMovie>
           </Route>
-           <Route exact path="/repertoire/add_showing">
+          <Route exact path="/repertoire/add_showing">
             <AddShowing></AddShowing>
           </Route>
-           <Route exact path="/repertoire/edit_showing">
+          <Route exact path="/repertoire/edit_showing">
             <EditShowings></EditShowings>
           </Route>
           <Route exact path="/movie_popularity">
