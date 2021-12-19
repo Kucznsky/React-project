@@ -5,6 +5,14 @@
 - Michał Kuczyński
 - Daniel Pietrzeniuk
 
+## Architektura
+### Wyświetlanie sal:
+
+
+
+
+
+
 ## Ścieżki i komponenty związane z routingiem:
 
 - "/": HomePage
@@ -19,7 +27,6 @@
 - "/repertoire/edit_showing": EditShowings
 - "/movie_popularity": MoviePopularity
 - "/purchase/success": Purchase_success
-
 ## API serwera:
 
 - https://localhost:5001/Films
