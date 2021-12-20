@@ -6,13 +6,30 @@
 - Daniel Pietrzeniuk
 
 ## Architektura
-### Wyświetlanie sal:
-
-
-
-
-
-
+### Pasek nawigacji:
+- W pliku Homebar.js znajduje się komponent stanowy Homebar, znajdują się w nim linki do dtrony głównej, listy sal, listy repertuarów oraz listy filmów (funkcjonalności opisane w sekcjach poniżej)
+- Komponent renderowany jest w App.js
+### Wyświetlanie listy sal:
+ - W pliku ScreeningRoomList.js znajdują się komponenty funkcyjne ScreeningRoomList oraz Room. 
+ - W ScreeningRoomList dane zostają pobrane z API przy pomocy React Hooks, następnie wewnątrz komponentu zostaje mapowana lista, której pojedyńczym elementem jest komponent   Room, który przyjmuje parametry pobrane z API (id sali kinowej oraz ilości miejsc), a następnie wyświetla je. 
+ - Typ danych podawanych do komponentu Room jest weryfikowany przez PropTypes.
+ - Komponent ScreeningRoomList renderowany jest w pliku App.js.
+### Wyświetlanie seansów:
+ - W pliku Repertoire.js znajduje się komponent Repertoire, pobiera on dane z Api, a następnie wyświetla na ekra.
+ - Jest Renderowany w App.js.
+### Wyświetlanie listy filmów: 
+- W pliku MovieList.js znajuduje się komponent MovieList, który pobiera dane z API poprzez React Hooks oraz mapuje listę której pojedyńczym elementem jest komponent Movie.
+- Komponent Movie otrzymuje w parametrze pobrane dane (tytuł filmu oraz czas trwania), które wyświetla.
+- Poprawność typu danych jest sprawdzana poprzez PropTypes.
+- Dodatkowo komponent Room ma w sobie link, który ma w parametrze id danego filmu (routing z parametrem), dzięki czemu kliknięcie elementu listy filmów przekierowuje do komponentu MovieDetails, w którym wyświetlane są szczegółowe dane wybranego filmu. Sam komponent MovieDetails znajduje się w oddzielnym pliku MovieDetails.js, a renderowany jest w pliku App.js.
+- Komponent MovieList renderowany jest w pliku App.js
+### Dodawanie filmów: 
+- Komponent renderujący formulaż dodawania filmu nazywa się AddMovie i znajduje się w pliku AddMovie.js.
+- Jest to komponent klasowy, w stanie są przetrzymywane dane wprowadzone przez użytkownika, które zostaną wysłane do bazy danych.
+- Użytkownik chcąc dodać nowy film musi podać tytuł filmu oraz czas jego trwania.
+- Wprowadzone przez użytkownika dabe podlegają walidacji funkcją wewnątrz komponentu, dane zostaną zaakceptowane jeśli tytuł będzie zaczynał się wielką literą, w czasie trwania filmu zostaną wprowadzone tylko liczby, oraz wszystkie rubryczki nie pozostaną puste
+- Dodany film pojawi się w liście filmów wyświetlanej przez komponent MovieList
+- Komponent AddMovie jest renderowany w App.js, a można się do niego dostać poprzez link w komponencie MovieList.
 ## Ścieżki i komponenty związane z routingiem:
 
 - "/": HomePage
